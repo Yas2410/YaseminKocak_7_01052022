@@ -31,69 +31,7 @@
 
     <main>
 
-        <!--SEARCH A RECIPE IN SEARCHBAR-->
-        <section class="research_section">
-            <form class="searchbar">
-                <input type="search" name="search" id="searchbar_input" class="searchbar_input"
-                    placeholder="Rechercher une recette" />
-                <i class="fas fa-search" role="button"></i>
-            </form>
-        </section>
-
-        <!--TAGS APPEARING AFTER FILTERS SELECTION-->
-        <section class="tags"></section>
-
-        <!--SEARCH A RECIPE WITH FILTERS-->
-        <section class="filters">
-            <!--INGREDIENTS FILTER-->
-            <details class="filter_menu ingredients_menu">
-                <summary class="filter_research filter_research_ingredients">
-                    <span class="filter_research_name">Ingrédients</span>
-                    <input class="filter_research_input filter_research_input_ingredients" type="search"
-                        name="Recherche" placeholder="Rechercher un ingrédient" />
-                    <span class="filter_research_icon filter_research_icon_ingredients"></span>
-                </summary>
-                <ul class="filter_list filter_list_ingredients" role="listbox" aria-expanded="false">
-                </ul>
-            </details>
-            <!--APPLIANCE FILTER-->
-            <details class="filter_menu appliances_menu">
-                <summary class="filter_research filter_research_appliances">
-                    <span class="filter_research_name">Appareils</span>
-                    <input class="filter_research_input filter_research_input_appliances" type="search" name="Recherche"
-                        placeholder="Rechercher un appareil" />
-                    <span class="filter_research_icon filter_research_icon_appliances"></span>
-                </summary>
-                <ul class="filter_list filter_list_appliances" role="listbox" aria-expanded="false">
-                </ul>
-            </details>
-            <!--USTENSIL FILTER-->
-            <details class="filter_menu ustensils_menu">
-                <summary class="filter_research filter_research_ustensils">
-                    <span class="filter_research_name">Ustensiles</span>
-                    <input class="filter_research_input filter_research_input_ustensils" type="search" name="Recherche"
-                        placeholder="Rechercher un ustensile" />
-                    <span class="filter_research_icon filter_research_icon_ustensils"></span>
-                </summary>
-                <ul class="filter_list filter_list_ustensils" role="listbox" aria-expanded="false">
-                </ul>
-            </details>
-        </section>
-
-        <!-- RETURN FILTERED RECIPES LIST IF 
-        INPUT MATCHES WITH WORDS IN RECIPES CARDS -->
-        <section class="recipes_cards">
-        </section>
-
     </main>
-
-
-    <!--DATA -->
-    <script src="scripts/components/Recipe.js"></script>
-
-    <!--MAIN-->
-    <script type="module" src="scripts/index.js"></script>
-
 
 </body>
 
