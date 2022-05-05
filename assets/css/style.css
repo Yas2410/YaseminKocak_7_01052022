@@ -423,14 +423,25 @@ element.style {
   cursor: pointer;
   transition: all 100ms ease-in-out;
 }
-.filter_list li > a:hover {
-  color: #000000;
+
+.filter_list_option_ingredients:hover {
+  color: #082d63;
+  font-weight: bold;
+}
+
+.filter_list_option_appliances:hover {
+  color: #09482b;
+  font-weight: bold;
+}
+
+.filter_list_option_ustensils:hover {
+  color: #771308;
+  font-weight: bold;
 }
 
 .filter_menu[open] {
   min-width: 300px;
   max-width: 1025px;
-  /*height: 470px;*/
 }
 .filter_menu[open] .filter_research_name {
   display: none;
