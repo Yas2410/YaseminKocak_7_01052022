@@ -1,5 +1,5 @@
 //////////////////////////////////////////////
-///////// ALGO 1 : Méthode filter() /////////
+///////// ALGO 2 : Méthode BOUCLE FOR /////////
 
 /*La recherche dans la barre de recherche s'initialise dès lors
 que l'utilisateur entre au minimum 3 caractères
@@ -7,7 +7,7 @@ que l'utilisateur entre au minimum 3 caractères
 function inputSearchRecipes(recipes, filteredRecipes, value) {
   /*Si une recherche est effectuée (>3), je filtre les recettes
       en prenant en paramètre ma fonction "FindMatchingWords",
-      ui va vérifier si l'input matche avec un mot présent dans les champs
+      qui va vérifier si l'input matche avec un mot présent dans les champs
       noms, ingrédients, descriptions, ustensiles et appareils
       */
   if (filteredRecipes.length != 0) {
@@ -15,10 +15,16 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
     filteredRecipes = filterRecipesByTags(recipes, filteredRecipes, false);
 
     if (value.length >= 3) {
-      filteredRecipes = filteredRecipes.filter((recipe) =>
-        findMatchingWords(recipe, value)
-      );
+      /*Filtre sur les recettes déja filtrées*/
+      let newFilteredRecipes = [];
+      for (let i = 0; i < filteredRecipes.length; i++) {
+        if (findMatchingWords(filteredRecipes[i], value) === true) {
+          newFilteredRecipes.push(filteredRecipes[i]);
+        }
+      }
+      filteredRecipes = newFilteredRecipes;
     }
+    /*Si les recettes ne sont pas déja filtrées, alors : */
   } else {
     /*Sinon, tant que l'input != 3 caractères
       je retourne l'ensemble de mes recettes.
@@ -26,9 +32,14 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
       aucun match, voir classe RECIPE : Message "no results"
       */
     if (value.length >= 3) {
-      filteredRecipes = recipes.filter((recipe) =>
-        findMatchingWords(recipe, value)
-      );
+      /*Filtrer les recettes*/
+      let newFilteredRecipes = [];
+      for (let j = 0; j < recipes.length; j++) {
+        if (findMatchingWords(recipes[j], value) === true) {
+          newFilteredRecipes.push(recipes[j]);
+        }
+      }
+      filteredRecipes = newFilteredRecipes;
     } else {
       filteredRecipes = recipes;
     }
@@ -45,27 +56,24 @@ function findMatchingWords(recipe, value) {
     recipe.description,
     recipe.appliance,
   ];
-  let ingredientsList = recipe.ingredients;
-  ingredientsList.forEach(function (recipeIngredient) {
-    MatchingWordsInRecipes.push(recipeIngredient.ingredient);
-  });
-  let recipeUstensils = recipe.ustensils;
-  recipeUstensils.forEach(function (recipeUstensil) {
-    MatchingWordsInRecipes.push(recipeUstensil);
-  });
+  for (let i = 0; i < recipe.ingredients.length; i++) {
+    MatchingWordsInRecipes.push(recipe.ingredients[i].ingredient);
+  }
+  for (let j = 0; j < recipe.ustensils.length; j++) {
+    MatchingWordsInRecipes.push(recipe.ustensils[j]);
+  }
   /*A chaque fois, j'utilise ma méthode "push()" qui va retourner à l'utilisateur,
     l'information demandée en fonction des entrées qu'il aura tapé*/
 
-  /*Enfin, s'il y a match, je retourne vrai (méthode "some()"").
-    A l'inverse, si aucun match n'a été trouvé 
-    dans aucun des champs, je renvoie faux*/
-  let matchingWords = MatchingWordsInRecipes.some((recipeField) =>
-    /*J'ajoute également ma méthode "toLowerCase()"" 
-      qui va permettre de prendre en compte les entrées 
-      en majuscules (va les convertir en minuscules))*/
-    recipeField.toLowerCase().includes(value.toLowerCase())
-  );
-  return matchingWords;
+  /*Enfin, s'il y a match, je retourne vrai. A l'inverse, si aucun match n'a été trouvé 
+    dans aucun des champs, je renvoie faux. J'ajoute également ma méthode "toLowerCase()" 
+    qui va permettre de prendre en compte les entrées en majuscules 
+    (va les convertir en minuscules))*/
+  for (let k = 0; k < MatchingWordsInRecipes.length; k++) {
+    if (MatchingWordsInRecipes[k].toLowerCase().includes(value.toLowerCase())) {
+      return true;
+    }
+  }
 }
 
 const researchInputFilter = document.querySelectorAll(".filter_research_input");
