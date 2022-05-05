@@ -1,4 +1,5 @@
-ALGO 1 : "Méthode filter()"
-Fichier : SEARCH.JS
+ALGO 1 : Méthode "filter()"
+Branch : SearchWithFilter
 
-ALGO 2 :
+ALGO 2 : Méthode native "BOUCLE FOR"
+Branch : SearchWithFOR
