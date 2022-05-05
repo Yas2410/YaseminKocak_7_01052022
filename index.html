@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Les Petits Plats : Besoin d'inspiration en cuisine ? Explorez notre annuaire de recettes!">
+    <meta name="keywords"
+        content="recettes, plats, recipes, food, recherche, search, ingrédients, entrées, desserts, mots-clés, keywords">
+    <link rel="icon" type="image/png" href="assets/img/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Lato:wght@400;700&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Les Petits Plats : Votre meilleur allié Recettes en cuisine ! </title>
+</head>
+
+<body>
+
+    <header>
+        <!--LES PETITS PLATS LOGO HEADER-->
+        <img src="/assets/img/logo.svg" class="" alt="Logo Les Petits Plats">
+        <h1 class="header_logo_title">Les petits plats</h1>
+    </header>
+
+    <main>
+
+        <!--SEARCH A RECIPE IN SEARCHBAR-->
+        <section class="research_section">
+            <form class="searchbar">
+                <input type="search" name="search" id="searchbar_input" class="searchbar_input"
+                    placeholder="Rechercher une recette" />
+                <i class="fas fa-search" role="button"></i>
+            </form>
+        </section>
+
+        <!--TAGS APPEARING AFTER FILTERS SELECTION-->
+        <section class="tags"></section>
+
+        <!--SEARCH A RECIPE WITH FILTERS-->
+        <section class="filters">
+            <!--INGREDIENTS FILTER-->
+            <details class="filter_menu ingredients_menu">
+                <summary class="filter_research filter_research_ingredients">
+                    <span class="filter_research_name">Ingrédients</span>
+                    <input class="filter_research_input filter_research_input_ingredients" type="search"
+                        name="Recherche" placeholder="Rechercher un ingrédient" />
+                    <span class="filter_research_icon filter_research_icon_ingredients"></span>
+                </summary>
+                <ul class="filter_list filter_list_ingredients" role="listbox" aria-expanded="false">
+                </ul>
+            </details>
+            <!--APPLIANCE FILTER-->
+            <details class="filter_menu appliances_menu">
+                <summary class="filter_research filter_research_appliances">
+                    <span class="filter_research_name">Appareils</span>
+                    <input class="filter_research_input filter_research_input_appliances" type="search" name="Recherche"
+                        placeholder="Rechercher un appareil" />
+                    <span class="filter_research_icon filter_research_icon_appliances"></span>
+                </summary>
+                <ul class="filter_list filter_list_appliances" role="listbox" aria-expanded="false">
+                </ul>
+            </details>
+            <!--USTENSIL FILTER-->
+            <details class="filter_menu ustensils_menu">
+                <summary class="filter_research filter_research_ustensils">
+                    <span class="filter_research_name">Ustensiles</span>
+                    <input class="filter_research_input filter_research_input_ustensils" type="search" name="Recherche"
+                        placeholder="Rechercher un ustensile" />
+                    <span class="filter_research_icon filter_research_icon_ustensils"></span>
+                </summary>
+                <ul class="filter_list filter_list_ustensils" role="listbox" aria-expanded="false">
+                </ul>
+            </details>
+        </section>
+
+        <!-- RETURN FILTERED RECIPES LIST IF 
+        INPUT MATCHES WITH WORDS IN RECIPES CARDS -->
+        <section class="recipes_cards">
+        </section>
+
+    </main>
+
+
+    <!--DATA -->
+    <script src="scripts/components/Recipe.js"></script>
+
+    <!--MAIN-->
+    <script type="module" src="scripts/index.js"></script>
+
+
+</body>
+
+</html>
