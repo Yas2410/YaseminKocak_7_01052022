@@ -10,6 +10,7 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
       qui va vérifier si l'input matche avec un mot présent dans les champs
       noms, ingrédients, descriptions, ustensiles et appareils
       */
+
   if (filteredRecipes.length != 0) {
     filteredRecipes = [];
     filteredRecipes = filterRecipesByTags(recipes, filteredRecipes, false);
@@ -44,6 +45,7 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
       filteredRecipes = recipes;
     }
   }
+
   return filteredRecipes;
 }
 
