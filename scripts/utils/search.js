@@ -4,6 +4,7 @@
 /*La recherche dans la barre de recherche s'initialise dès lors
 que l'utilisateur entre au minimum 3 caractères
  */
+
 function inputSearchRecipes(recipes, filteredRecipes, value) {
   /*Si une recherche est effectuée (>3), je filtre les recettes
       en prenant en paramètre ma fonction "FindMatchingWords",
@@ -23,6 +24,7 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
           newFilteredRecipes.push(filteredRecipes[i]);
         }
       }
+
       filteredRecipes = newFilteredRecipes;
     }
     /*Si les recettes ne sont pas déja filtrées, alors : */
@@ -32,6 +34,7 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
       Si j'ai une entrée à plus de 3 caractères MAIS
       aucun match, voir classe RECIPE : Message "no results"
       */
+    console.time("Timer1");
     if (value.length >= 3) {
       /*Filtrer les recettes*/
       let newFilteredRecipes = [];
@@ -43,6 +46,7 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
       filteredRecipes = newFilteredRecipes;
     } else {
       filteredRecipes = recipes;
+      console.timeEnd("Timer1");
     }
   }
 
