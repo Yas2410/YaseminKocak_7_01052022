@@ -11,8 +11,6 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
       noms, ingrédients, descriptions, ustensiles et appareils
       */
 
-  console.time("monTimer1"); // timer début performance
-
   if (filteredRecipes.length != 0) {
     filteredRecipes = [];
     filteredRecipes = filterRecipesByTags(recipes, filteredRecipes, false);
@@ -36,8 +34,6 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
       filteredRecipes = recipes;
     }
   }
-  console.timeEnd("monTimer1"); // timer fin performance
-
   return filteredRecipes;
 }
 
