@@ -33,10 +33,9 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
       );
     } else {
       filteredRecipes = recipes;
+      console.timeEnd("Timer1");
     }
-    console.timeEnd("Timer1");
   }
-
   return filteredRecipes;
 }
 
