@@ -34,7 +34,7 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
       Si j'ai une entrée à plus de 3 caractères MAIS
       aucun match, voir classe RECIPE : Message "no results"
       */
-    console.time("Timer1");
+    //console.time("Timer1");
     if (value.length >= 3) {
       /*Filtrer les recettes*/
       let newFilteredRecipes = [];
@@ -46,7 +46,7 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
       filteredRecipes = newFilteredRecipes;
     } else {
       filteredRecipes = recipes;
-      console.timeEnd("Timer1");
+      // console.timeEnd("Timer1");
     }
   }
 
