@@ -17,6 +17,7 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
     filteredRecipes = filterRecipesByTags(recipes, filteredRecipes, false);
 
     if (value.length >= 3) {
+      console.time("timerFor");
       /*Filtre sur les recettes déja filtrées*/
       let newFilteredRecipes = [];
       for (let i = 0; i < filteredRecipes.length; i++) {
@@ -26,6 +27,7 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
       }
 
       filteredRecipes = newFilteredRecipes;
+      console.timeEnd("timerFor");
     }
     /*Si les recettes ne sont pas déja filtrées, alors : */
   } else {
