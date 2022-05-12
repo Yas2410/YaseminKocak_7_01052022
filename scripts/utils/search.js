@@ -16,9 +16,11 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
     filteredRecipes = filterRecipesByTags(recipes, filteredRecipes, false);
 
     if (value.length >= 3) {
+      console.time("timerFilter");
       filteredRecipes = filteredRecipes.filter((recipe) =>
         findMatchingWords(recipe, value)
       );
+      console.timeEnd("timerFilter");
     }
   } else {
     /*Sinon, tant que l'input != 3 caractères
@@ -36,6 +38,7 @@ function inputSearchRecipes(recipes, filteredRecipes, value) {
       //console.timeEnd("Timer1");
     }
   }
+
   return filteredRecipes;
 }
 
