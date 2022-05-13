@@ -1,5 +1,5 @@
-ALGO 1 : Méthode "filter()"
+ALGO 1 : Méthode "filter()".
 Branch : SearchWithFILTER
 
-ALGO 2 : Méthode native "BOUCLE FOR"
+ALGO 2 : Méthode native "BOUCLE FOR".
 Branch : SearchWithFOR
