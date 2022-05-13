@@ -1,9 +1,8 @@
-/*JE CREE MA CLASSE RECIPE QUI VA REGROUPER
-L'ENSEMBLE DES DONNEES (recettes) DE MON ARRAY "RECIPES.JS"*/
+/*
+Je créé ma classe RECIPE qui va regrouper l'ensemble
+des données (recettes) de mon array "RECIPES.JS"
+*/
 class Recipe {
-  /**
-   * @param {array} recipe
-   */
   constructor(recipe) {
     this._id = recipe.id;
     this._name = recipe.name;
@@ -15,15 +14,17 @@ class Recipe {
     this._ustensils = recipe.ustensils;
   }
 
-  /*CREATION DES FICHES RECETTES A PARTIR DES
-    ELEMENTS DE MA CLASSE RECIPE
-     */
+  /*
+  Création des fiches recettes à partir des éléments
+  de ma classe RECIPE
+  */
   get createRecipeCard() {
+    //Chaque fiche recette = article
     const recipeCard = document.createElement("article");
     recipeCard.classList.add("recipe_card");
     recipeCard.setAttribute("id", `${this._name}`);
 
-    /*Affichage de la photo, du titre et du temps de cuisson*/
+    //Affichage de la photo, du titre et du temps de cuisson
     recipeCard.innerHTML = `
       <div class="card_background">
       <img src="/assets/img/recipesPictures/${this._id}.jpg"  alt="Photo illustrant la recette '${this._name}'">
@@ -37,26 +38,30 @@ class Recipe {
         </div>
     `;
 
-    /*Affichage des ingrédients et des conseils de préparation*/
+    //Affichage des ingrédients et des conseils de préparation
     const recipeInfo = document.createElement("div");
     recipeInfo.setAttribute("class", "recipe_info");
 
-    /*Ingrédients détaillés*/
+    //Ingrédients détaillés
     const ingredientsList = document.createElement("ul");
     ingredientsList.setAttribute("class", "recipe_ingredients");
+
+    //Pour chaque section "ingrédients", renvoyer sous forme de liste ("li")
+    //l'ensemble des ingrédients détaillés
     for (let i = 0; i < this._ingredients.length; i++) {
       const ingredientsDetails = document.createElement("li");
       ingredientsDetails.setAttribute("class", "ingredients_details");
+
+      //Si la quantité n'est pas renseignée, on renvoie un champ vide ""
+      //afin d'éviter l'apparition de "undefined"
       if (this._ingredients[i].quantity === undefined) {
-        /*Si quantité non renseignée, éviter d'afficher la mention
-          "undefined*/
         this._ingredients[i].quantity = "";
       }
-      /*idem pour les unités + mesures*/
+      //Idem sur les unités de mesure
       if (this._ingredients[i].unit === undefined) {
         this._ingredients[i].unit = "";
       } else {
-        /*Uniformisation des unités de mesure*/
+        //Uniformisation des unités de mesure
         switch (this._ingredients[i].unit) {
           case "gramme":
           case "grammes":
@@ -92,8 +97,8 @@ class Recipe {
         }
       }
 
-      /*Je retourne l'ensemble de mes ingrédients détaillées :
-        Ingrédients + quantité */
+      //Je retourne l'ensemble de mes ingrédients détaillés :
+      //Ingrédients + quantité/unité
       ingredientsList.innerHTML += `
     <li class="ingredients_details">
                   <span><strong>${this._ingredients[i].ingredient}</strong></span>
@@ -101,17 +106,19 @@ class Recipe {
               </li>`;
       recipeInfo.appendChild(ingredientsList);
     }
-    /*Conseils de préparation*/
+    //Conseils de préparation
     recipeInfo.innerHTML += `<p class='recipe_description'>${this._description}<p>`;
     recipeCard.appendChild(recipeInfo);
 
-    /*Enfin, je retourne l'ensemble de ma fiche recette*/
+    //Enfin, je retourne l'ensemble de ma fiche recette
     return recipeCard;
   }
 
-  /*CREATION DU FILTRE QUI VA CONTENIR
-       LE LISTING DE TOUS LES INGREDIENTS
-     */
+  /*
+  Création du filtre qui va contenir 
+  le listing de l'ensemble des ingrédients
+  présents dans toutes les fiches recettes
+  */
   get createIngredients() {
     const ingredientsList = [];
 
@@ -140,9 +147,11 @@ class Recipe {
     return ingredientsList;
   }
 
-  /*CREATION DU FILTRE QUI VA CONTENIR
-       LE LISTING DE TOUS LES USTENSILES
-     */
+  /*
+  Création du filtre qui va contenir 
+  le listing de l'ensemble des ustensiles
+  présents dans toutes les fiches recettes
+  */
   get createUstensils() {
     const ustensilsList = [];
 
@@ -168,9 +177,11 @@ class Recipe {
     return ustensilsList;
   }
 
-  /*CREATION DU FILTRE QUI VA CONTENIR
-       LE LISTING DE TOUS LES APPAREILS
-     */
+  /*
+  Création du filtre qui va contenir 
+  le listing de l'ensemble des appareils
+  présents dans toutes les fiches recettes
+  */
   get createAppliances() {
     const appliancesFilterDisplay = document.createElement("li");
     appliancesFilterDisplay.classList.add(
